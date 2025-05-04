@@ -1,0 +1,1 @@
+while enabled==true  do for v0,v1 in pairs(game.Players:GetChildren()) do if ((v1.leaderstats["킬"].Value<=value) and (game.Players.LocalPlayer.leaderstats["킬"].Value>=(312 -212))) then game.ReplicatedStorage.ok:FireServer("3",v1.Name);end end wait(0.15);end
