@@ -1,0 +1,82 @@
+print("LocalPlayer를 불러오는 중..")
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+print("ScreenGui를 생성하는 중..")
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "CustomGui"
+screenGui.Parent = playerGui
+
+print("메인 Frame을 생성하는 중..")
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 300, 0, 200)
+frame.Position = UDim2.new(0.5, -150, 0.5, -100)
+frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+frame.Active = true
+frame.Draggable = true
+frame.Parent = screenGui
+
+print("타이틀을 생성하는 중..")
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(1, 0, 0, 40)
+titleLabel.Position = UDim2.new(0, 0, 0, 15)
+titleLabel.BackgroundTransparency = 1
+titleLabel.Text = "자본주의 타워"
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.Font = Enum.Font.SourceSansBold
+titleLabel.TextScaled = true
+titleLabel.Parent = frame
+
+local titleLabel2 = Instance.new("TextLabel")
+titleLabel2.Size = UDim2.new(1, 0, 0, 30)
+titleLabel2.Position = UDim2.new(0, 0, 0, 55)
+titleLabel2.BackgroundTransparency = 1
+titleLabel2.Text = "킹갓 제너럴 무한 돈 스크립트"
+titleLabel2.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel2.Font = Enum.Font.SourceSansBold
+titleLabel2.TextScaled = true
+titleLabel2.Parent = frame
+
+local titleLabel3 = Instance.new("TextLabel")
+titleLabel3.Size = UDim2.new(1, 0, 0, 30)
+titleLabel3.Position = UDim2.new(0, 0, 0, 105)
+titleLabel3.BackgroundTransparency = 1
+titleLabel3.Text = "제작 : Uz_0n"
+titleLabel3.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel3.Font = Enum.Font.SourceSansBold
+titleLabel3.TextScaled = true
+titleLabel3.Parent = frame
+
+print("닫기 버튼을 생성하는 중..")
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Position = UDim2.new(1, -35, 0, 5)
+closeButton.Text = "X"
+closeButton.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.Font = Enum.Font.SourceSansBold
+closeButton.TextScaled = true
+closeButton.Parent = frame
+
+print("월급 받기 버튼을 생성하는 중..")
+local getSalaryButton = Instance.new("TextButton")
+getSalaryButton.Size = UDim2.new(0.6, 0, 0, 40)
+getSalaryButton.Position = UDim2.new(0.2, 0, 1, -60)
+getSalaryButton.Text = "월급 받기"
+getSalaryButton.BackgroundColor3 = Color3.fromRGB(50, 150, 200)
+getSalaryButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+getSalaryButton.Font = Enum.Font.SourceSansBold
+getSalaryButton.TextScaled = true
+getSalaryButton.Parent = frame
+
+closeButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+    print("GUI를 없애는 중..")
+end)
+
+getSalaryButton.MouseButton1Click:Connect(function()
+	  game.ReplicatedStorage.tprma:FireServer()
+    print("서버에 요청 보내는 중..")
+end)
+
+print("돈 무한 스크립트 로딩됨!!")
